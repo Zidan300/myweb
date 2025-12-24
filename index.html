@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Zidan Thapaliya</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-dUqg+8Dy5sYXj3U5rP+VybE6Tx6C/u9rPWhJ2vsy5nAejZ6tW6B+qDh6U+GGzpW4F0Z1YjRZzD6Glk0nRXYbZQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Lora', serif;
+    }
+
+    nav, nav a, nav .logo,
+    section h2,
+    section h3,
+    footer p {
+      font-family: 'Lora', serif;
+      letter-spacing: 0.8px;
+    }
+
+    p {
+      font-family: 'Lora', serif;
+    }
+
+    body {
+      background: url('view.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: -1;
+    }
+
+    nav {
+      position: fixed;
+      top: 20px; /* margin from top */
+      left: 50%;
+      transform: translateX(-50%); /* center horizontally */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px; /* thinner bar */
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(12px);
+      border-radius: 30px; /* rounded corners */
+      z-index: 1000;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-size: 0.85rem; /* smaller text */
+      position: relative;
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(135deg, #ff512f, #dd2476);
+      left: 0;
+      bottom: -6px;
+      transition: width 0.3s ease;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    .resume-btn {
+      padding: 5px 12px; /* smaller button size */
+      font-size: 0.7rem; /* smaller text */
+      border-radius: 30px;
+      background: linear-gradient(135deg, #ff512f, #dd2476);
+      color: white;
+    }
+
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    header h1 {
+      font-size: 4rem;
+      letter-spacing: 3px;
+    }
+
+  .glass-welcome {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(5.5rem, 10vw, 7rem);
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: transparent;
+    background: linear-gradient(270deg, #ff512f, #dd2476, #ff512f, #00f2fe, #ff512f);
+    background-size: 600% 600%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    filter: drop-shadow(0 0 15px #fff9) drop-shadow(0 0 40px #ff512f55);
+    opacity: 0;
+    margin-bottom: 20px;
+    animation:
+      gradientMove 5s linear infinite,
+      glassGlow 2.8s ease-in-out infinite alternate,
+      welcomeScaleRotate 3.6s cubic-bezier(.4,2,.6,.9) infinite;
+    transition: opacity 0.9s cubic-bezier(.4,2,.6,.9), filter 0.8s cubic-bezier(.4,2,.6,.9), transform 0.8s cubic-bezier(.4,2,.6,.9);
+    will-change: filter, transform, opacity;
+  }
+
+  @keyframes welcomeScaleRotate {
+    0% {
+      transform: scale(1) rotate(-2deg);
+      filter: blur(0.2px);
+    }
+    12% {
+      transform: scale(1.04) rotate(3deg);
+      filter: blur(0.5px);
+    }
+    25% {
+      transform: scale(1.09) rotate(-4deg);
+      filter: blur(1px);
+    }
+    37% {
+      transform: scale(1.06) rotate(1deg);
+      filter: blur(0.7px);
+    }
+    50% {
+      transform: scale(1.12) rotate(-3deg);
+      filter: blur(1.2px);
+    }
+    62% {
+      transform: scale(1.09) rotate(2deg);
+      filter: blur(0.7px);
+    }
+    75% {
+      transform: scale(1.02) rotate(-2deg);
+      filter: blur(0.3px);
+    }
+    100% {
+      transform: scale(1) rotate(-2deg);
+      filter: blur(0.2px);
+    }
+  }
+
+    @keyframes glassGlow {
+      0% {
+        text-shadow:
+          0 0 3px rgba(255,255,255,0.3),
+          0 0 10px rgba(255,255,255,0.2),
+          0 0 15px rgba(255,255,255,0.1);
+        filter: blur(0.5px);
+      }
+      50% {
+        text-shadow:
+          0 0 8px rgba(255,255,255,0.7),
+          0 0 20px rgba(255,255,255,0.5),
+          0 0 30px rgba(255,255,255,0.3);
+        filter: blur(1px);
+      }
+      100% {
+        text-shadow:
+          0 0 5px rgba(255,255,255,0.6),
+          0 0 15px rgba(255,255,255,0.4),
+          0 0 25px rgba(255,255,255,0.2);
+        filter: blur(0.7px);
+      }
+    }
+
+    @keyframes welcomeFade {
+      0% {
+        opacity: 0;
+        transform: translateY(50px) scale(1.2);
+        filter: blur(20px);
+      }
+      50% {
+        opacity: 0.6;
+        transform: translateY(20px) scale(1.05);
+        filter: blur(10px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+      }
+    }
+
+    @keyframes glowPulse {
+      from {
+        box-shadow:
+          0 0 25px rgba(255, 255, 255, 0.15),
+          inset 0 0 15px rgba(255, 255, 255, 0.25);
+      }
+      to {
+        box-shadow:
+          0 0 60px rgba(255, 255, 255, 0.35),
+          inset 0 0 30px rgba(255, 255, 255, 0.45);
+      }
+    }
+
+    header p {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      opacity: 0.85;
+    }
+
+    button {
+      margin-top: 40px;
+      padding: 15px 40px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #ff512f, #dd2476);
+      color: white;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    }
+
+    section {
+      padding: 100px 10%;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      transition: transform 0.4s ease, background 0.4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-20px) scale(1.05);
+      background: rgba(255,255,255,0.15);
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      background: rgba(0,0,0,0.4);
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff512f; }
+      to { text-shadow: 0 0 30px #dd2476; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Falling flowers effect */
+    .flower {
+      position: fixed;
+      top: -100px;
+      width: 60px;
+      pointer-events: none;
+      animation: fall linear forwards;
+      opacity: 1;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 1;
+      }
+      25% {
+        transform: translate(-30px, 25vh) rotate(90deg);
+      }
+      50% {
+        transform: translate(30px, 50vh) rotate(180deg);
+      }
+      75% {
+        transform: translate(-20px, 75vh) rotate(270deg);
+      }
+      100% {
+        transform: translate(20px, 110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<audio id="backgroundMusic" loop>
+  <source src="tune.m4a" type="audio/mp4">
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+  window.addEventListener('load', () => {
+    const audio = document.getElementById('backgroundMusic');
+    audio.volume = 0.3; // adjust volume if needed
+
+    const playAudio = () => {
+      audio.play().catch(() => {
+        // If autoplay blocked, play on first user interaction
+        document.addEventListener('click', () => {
+          audio.play();
+        }, { once: true });
+      });
+    };
+
+    playAudio();
+  });
+</script>
+
+<nav>
+
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certificates">Certificates</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="RESUME.pdf" class="resume-btn" download>Download Resume</a></li>
+  </ul>
+</nav>
+
+<header id="home">
+  <h1 id="welcomeText" class="glass-welcome">Welcome</h1>
+
+  <button onclick="playEffect()" class="home-btn">
+    <span>🥀</span>
+  </button>
+  <canvas id="homeParticles"></canvas>
+</header>
+
+<section id="about">
+  <canvas id="aboutParticles"></canvas>
+  <div class="card-container">
+    <div class="card">
+      <img src="zidanphoto.jpg" alt="Profile Picture">
+      <h3>Zidan Thapaliya</h3>
+      
+    </div>
+  </div>
+</section>
+
+<style>
+  header {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .glass-welcome {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(5.5rem, 10vw, 7rem);
+    font-weight: 900;
+    color: rgba(255,255,255,0.85);
+    text-shadow: 0 0 10px rgba(255,255,255,0.6), 0 0 20px rgba(255,255,255,0.4);
+    animation: welcomeFade 2s ease forwards;
+    margin-bottom: 20px;
+  }
+
+  .intro-text {
+    font-size: 1.5rem;
+    max-width: 700px;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeIn 2.5s ease forwards;
+    animation-delay: 1s;
+  }
+
+  .home-btn {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: none;
+    background: radial-gradient(circle at 30% 30%, #ff512f, #dd2476);
+    color: #fff;
+    font-size: 2.5rem;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 0 15px #ff512faa, 0 0 25px #dd2476aa;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: fadeIn 2.5s ease forwards;
+    animation-delay: 2s;
+  }
+
+  .home-btn::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+    animation: pulse 2.5s infinite;
+    top: -50%;
+    left: -50%;
+    border-radius: 50%;
+    z-index: 0;
+  }
+
+  .home-btn:hover {
+    transform: scale(1.2) rotate(10deg);
+    box-shadow: 0 0 30px #ff512fcc, 0 0 50px #dd2476cc;
+  }
+
+  .home-btn span {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(0.8); opacity: 0.6; }
+    50% { transform: scale(1.1); opacity: 0.9; }
+    100% { transform: scale(0.8); opacity: 0.6; }
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+  }
+
+  #homeParticles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  #aboutParticles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  #about {
+    display: flex;
+    justify-content: center;
+    padding: 100px 10%;
+    position: relative;
+    border-top: 2px solid rgba(255, 255, 255, 0.3); /* separation line */
+    margin-top: 60px;
+    overflow: hidden;
+  }
+
+  .card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    z-index: 1;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    padding: 50px 40px;
+    text-align: center;
+    width: 300px;
+    transition: transform 0.5s ease, background 0.4s ease, box-shadow 0.4s ease;
+    cursor: default;
+  }
+
+  .card:hover {
+    transform: translateY(-20px) scale(1.05);
+    background: rgba(255,255,255,0.15);
+    box-shadow: 0 15px 40px rgba(255,81,47,0.3), 0 0 50px rgba(221,36,118,0.2);
+  }
+
+  .card img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.3);
+  }
+
+  .card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(255,255,255,0.4);
+  }
+
+  .card p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.8);
+  }
+
+  @media (max-width: 768px) {
+    .card-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>
+
+<script>
+  // Home section particles (restored and smoother, glowing bugs style)
+  const homeCanvas = document.getElementById('homeParticles');
+  const homeCtx = homeCanvas.getContext('2d');
+  let homeParticles = [];
+  function initHomeParticles() {
+    homeCanvas.width = homeCanvas.offsetWidth;
+    homeCanvas.height = homeCanvas.offsetHeight;
+    homeParticles = [];
+    const number = 90;
+    for (let i = 0; i < number; i++) {
+      homeParticles.push({
+        x: Math.random() * homeCanvas.width,
+        y: Math.random() * homeCanvas.height,
+        size: Math.random() * 2.5 + 1.2,
+        speedX: (Math.random() - 0.5) * 0.7,
+        speedY: (Math.random() - 0.5) * 0.7,
+        color: `rgba(255,255,255,${Math.random() * 0.55 + 0.25})`
+      });
+    }
+  }
+  function animateHomeParticles() {
+    homeCtx.clearRect(0, 0, homeCanvas.width, homeCanvas.height);
+    for (let p of homeParticles) {
+      homeCtx.beginPath();
+      homeCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      homeCtx.fillStyle = p.color;
+      homeCtx.shadowColor = "#fff";
+      homeCtx.shadowBlur = 7;
+      homeCtx.fill();
+      homeCtx.shadowBlur = 0;
+      p.x += p.speedX;
+      p.y += p.speedY;
+      // Bounce at edge
+      if (p.x < 0 || p.x > homeCanvas.width) p.speedX = -p.speedX;
+      if (p.y < 0 || p.y > homeCanvas.height) p.speedY = -p.speedY;
+    }
+    requestAnimationFrame(animateHomeParticles);
+  }
+  window.addEventListener('resize', initHomeParticles);
+  initHomeParticles();
+  animateHomeParticles();
+
+  // About section particles (glowing bugs)
+  const aboutCanvas = document.getElementById('aboutParticles');
+  const aboutCtx = aboutCanvas.getContext('2d');
+  let aboutParticles = [];
+  function initAboutParticles() {
+    aboutCanvas.width = aboutCanvas.offsetWidth;
+    aboutCanvas.height = aboutCanvas.offsetHeight;
+    aboutParticles = [];
+    const number = 80;
+    for (let i = 0; i < number; i++) {
+      aboutParticles.push({
+        x: Math.random() * aboutCanvas.width,
+        y: Math.random() * aboutCanvas.height,
+        size: Math.random() * 2.5 + 1,
+        speedX: (Math.random() - 0.5) * 0.65,
+        speedY: (Math.random() - 0.5) * 0.65,
+        color: `rgba(255,255,255,${Math.random() * 0.6 + 0.2})`
+      });
+    }
+  }
+  function animateAboutParticles() {
+    aboutCtx.clearRect(0, 0, aboutCanvas.width, aboutCanvas.height);
+    for (let p of aboutParticles) {
+      aboutCtx.beginPath();
+      aboutCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      aboutCtx.fillStyle = p.color;
+      aboutCtx.shadowColor = "#fff";
+      aboutCtx.shadowBlur = 6;
+      aboutCtx.fill();
+      aboutCtx.shadowBlur = 0;
+      p.x += p.speedX;
+      p.y += p.speedY;
+      if (p.x < 0 || p.x > aboutCanvas.width) p.speedX = -p.speedX;
+      if (p.y < 0 || p.y > aboutCanvas.height) p.speedY = -p.speedY;
+    }
+    requestAnimationFrame(animateAboutParticles);
+  }
+  window.addEventListener('resize', () => {
+    initAboutParticles();
+  });
+  initAboutParticles();
+  animateAboutParticles();
+</script>
+
+<section id="projects">
+  <canvas id="projectParticles"></canvas>
+  <h2 class="projects-heading">Projects</h2>
+  <div class="projects-carousel">
+    <button class="carousel-btn prev-btn" aria-label="Previous Projects">&#10094;</button>
+    <div class="carousel-track">
+      <div class="project-card" tabindex="0">
+        <div class="project-card-inner">
+          <img src="johannes-plenio-RwHv7LgeC7s-unsplash.jpg" alt="Project 1" />
+          <div class="project-details">
+            <h3 style="font-family: 'Great Vibes', cursive;">Project 1</h3>
+            <a href="https://689486cd1339dc6fa0a6b044--super-malasada-1af979.netlify.app/" target="_blank" class="project-link">View Project</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card" tabindex="0">
+        <div class="project-card-inner">
+          <img src="ai-generated-8064538_1280.jpg" alt="Project 2" />
+          <div class="project-details">
+            <h3>Project 2</h3>
+
+            <a href="#" class="project-link">View Project</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card" tabindex="0">
+        <div class="project-card-inner">
+          <img src="ChatGPT Image Nov 23, 2025, 05_31_11 PM.png" alt="Project 3" />
+          <div class="project-details">
+            <h3>Project 3</h3>
+
+            <a href="#" class="project-link">View Project</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card" tabindex="0">
+        <div class="project-card-inner">
+          <img src="101456.jpg" alt="Project 4" />
+          <div class="project-details">
+            <h3>Project 4</h3>
+
+            <a href="#" class="project-link">View Project</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card" tabindex="0">
+        <div class="project-card-inner">
+          <img src="411820.jpg" alt="Project 5" />
+          <div class="project-details">
+            <h3>Project 5</h3>
+
+            <a href="#" class="project-link">View Project</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card" tabindex="0">
+        <div class="project-card-inner">
+          <img src="ethan-robertson-CcETP4gFBTU.jpg" alt="Project 6" />
+          <div class="project-details">
+            <h3>Project 6</h3>
+
+            <a href="#" class="project-link">View Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-btn next-btn" aria-label="Next Projects">&#10095;</button>
+  </div>
+</section>
+
+<style>
+  /* Projects section outer size */
+  #projects {
+    position: relative;
+    padding: 150px 5%; /* increased padding for larger outer box */
+    border-top: 2px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    z-index: 0;
+    min-height: 800px; /* ensure bigger outer box */
+  }
+  .projects-heading {
+    font-size: 3rem;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, #ff512f 0%, #dd2476 40%, #ff512f 80%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientMove 4s linear infinite;
+    font-weight: 800;
+    text-align: center;
+    filter: drop-shadow(0 2px 12px #ff512f44);
+  }
+  .projects-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 420px;
+    z-index: 2;
+  }
+  .carousel-btn {
+    background: linear-gradient(135deg, #ff512f, #dd2476);
+    border: none;
+    color: #fff;
+    font-size: 2.2rem;
+    border-radius: 50%;
+    width: 54px;
+    height: 54px;
+    box-shadow: 0 0 15px #ff512f88, 0 0 30px #dd247688;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    z-index: 3;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: glowPulse 2s infinite alternate;
+  }
+  .carousel-btn:active,
+  .carousel-btn:focus {
+    transform: scale(1.13);
+    box-shadow: 0 0 30px #ff512faa, 0 0 60px #dd2476aa;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 38px;
+    overflow: hidden;
+    width: 100%;
+    scroll-behavior: smooth;
+    padding: 20px 0 40px 0;
+    z-index: 2;
+    position: relative;
+  }
+  /* Adjust project cards to be smaller */
+  .project-card, .project-card-inner {
+    min-width: 180px;
+    max-width: 200px;
+    height: 220px;
+  }
+  .project-card {
+    background: transparent;
+    flex: 0 0 240px;
+    border-radius: 30px;
+    perspective: 1200px;
+    transition: box-shadow 0.4s;
+    box-shadow: 0 4px 30px rgba(255,81,47,0.12);
+    outline: none;
+    position: relative;
+    z-index: 2;
+  }
+  .project-card:focus {
+    box-shadow: 0 0 0 3px #ff512faa, 0 4px 30px rgba(255,81,47,0.22);
+  }
+  .project-card-inner {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(14px);
+    border-radius: 30px;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 2px 18px rgba(0,0,0,0.12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.5s cubic-bezier(.4,2,.6,.9), box-shadow 0.4s;
+    will-change: transform;
+    cursor: pointer;
+  }
+  .project-card:hover .project-card-inner,
+  .project-card:focus .project-card-inner {
+    transform: rotateY(7deg) scale(1.06) translateY(-12px);
+    box-shadow: 0 16px 60px 0 #dd247644, 0 2px 20px #ff512f33;
+  }
+  /* Adjust inner image size */
+  .project-card-inner img {
+    width: 100%;
+    height: 90px; /* adjust image size proportionally */
+    object-fit: cover;
+    border-radius: 30px 30px 0 0;
+    box-shadow: 0 2px 20px #ff512f33;
+    transition: transform 0.4s;
+    margin-bottom: 0;
+  }
+  .project-card:hover .project-card-inner img,
+  .project-card:focus .project-card-inner img {
+    transform: scale(1.07) rotateY(4deg);
+  }
+  .project-details {
+    padding: 24px 16px 16px 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    color: #fff;
+    text-align: center;
+    gap: 14px;
+  }
+  /* Adjust project details font size */
+  .project-details h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 6px;
+    filter: drop-shadow(0 2px 8px #ff512f22);
+  }
+  .project-details p {
+    font-size: 0.85rem;
+    color: #fff;
+    opacity: 0.86;
+    margin-bottom: 0;
+    min-height: 40px;
+  }
+  .project-link {
+    margin-top: 8px;
+    padding: 8px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    background: linear-gradient(270deg, #ff512f, #dd2476, #ff512f);
+    background-size: 400% 400%;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.6px;
+    box-shadow: 0 0 16px #ff512f44;
+    transition: transform 0.23s, background-position 1.2s, box-shadow 0.23s;
+    animation: glowPulse 1.6s infinite alternate;
+    border: none;
+    outline: none;
+    display: inline-block;
+  }
+  .project-link:hover, .project-link:focus {
+    transform: scale(1.1);
+    background-position: 100% 0;
+    box-shadow: 0 0 30px #ff512faa, 0 0 50px #dd2476aa;
+    color: #fff;
+  }
+  /* Carousel scroll snap */
+  .carousel-track {
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+  }
+  .project-card {
+    scroll-snap-align: center;
+  }
+  /* Particle canvas */
+  #projectParticles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0; /* behind cards */
+  }
+  /* Responsive adjustments */
+  @media (max-width: 900px) {
+    .carousel-track {
+      gap: 18px;
+    }
+    .project-card, .project-card-inner {
+      min-width: 180px;
+      max-width: 200px;
+      height: 240px;
+    }
+    .project-card-inner img {
+      height: 90px;
+    }
+  }
+  @media (max-width: 600px) {
+    .projects-heading {
+      font-size: 2rem;
+      margin-bottom: 32px;
+    }
+    .carousel-btn {
+      width: 40px;
+      height: 40px;
+      font-size: 1.5rem;
+    }
+    .carousel-track {
+      gap: 10px;
+    }
+    .project-card, .project-card-inner {
+      min-width: 130px;
+      max-width: 150px;
+      height: 160px;
+    }
+    .project-card-inner img {
+      height: 60px;
+    }
+    .project-details h3 {
+      font-size: 1rem;
+    }
+    .project-details p {
+      font-size: 0.8rem;
+      min-height: 32px;
+    }
+    .project-link {
+      font-size: 0.9rem;
+      padding: 7px 18px;
+    }
+  }
+</style>
+
+<script>
+  // Animated particles for project section (smooth, full-section, behind cards)
+  const projectParticlesCanvas = document.getElementById('projectParticles');
+  const projectParticlesCtx = projectParticlesCanvas.getContext('2d');
+  let projectParticles = [];
+
+  function resizeProjectParticles() {
+    // Use getBoundingClientRect to get the rendered size
+    const rect = projectParticlesCanvas.parentElement.getBoundingClientRect();
+    projectParticlesCanvas.width = rect.width;
+    projectParticlesCanvas.height = rect.height;
+    projectParticlesCanvas.style.width = rect.width + "px";
+    projectParticlesCanvas.style.height = rect.height + "px";
+  }
+
+  function initProjectParticles() {
+    resizeProjectParticles();
+    projectParticles = [];
+    const number = 120; // more particles for better coverage
+    for (let i = 0; i < number; i++) {
+      projectParticles.push({
+        x: Math.random() * projectParticlesCanvas.width,
+        y: Math.random() * projectParticlesCanvas.height,
+        size: Math.random() * 3 + 1,
+        speedX: (Math.random() - 0.5) * 0.6,
+        speedY: (Math.random() - 0.5) * 0.6,
+        color: `rgba(255, 81, 47, ${Math.random() * 0.5 + 0.2})`
+      });
+    }
+  }
+
+  function animateProjectParticles() {
+    projectParticlesCtx.clearRect(0, 0, projectParticlesCanvas.width, projectParticlesCanvas.height);
+    for (let p of projectParticles) {
+      projectParticlesCtx.beginPath();
+      projectParticlesCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      projectParticlesCtx.fillStyle = p.color;
+      projectParticlesCtx.shadowColor = "#ff512f";
+      projectParticlesCtx.shadowBlur = 6;
+      projectParticlesCtx.fill();
+      projectParticlesCtx.shadowBlur = 0;
+      p.x += p.speedX;
+      p.y += p.speedY;
+
+      // Wrap around
+      if (p.x < 0) p.x = projectParticlesCanvas.width;
+      if (p.x > projectParticlesCanvas.width) p.x = 0;
+      if (p.y < 0) p.y = projectParticlesCanvas.height;
+      if (p.y > projectParticlesCanvas.height) p.y = 0;
+    }
+    requestAnimationFrame(animateProjectParticles);
+  }
+
+  window.addEventListener('resize', () => {
+    resizeProjectParticles();
+    initProjectParticles();
+  });
+
+  // Ensure canvas fills section on DOM ready
+  setTimeout(() => {
+    resizeProjectParticles();
+    initProjectParticles();
+  }, 150);
+
+  initProjectParticles();
+  animateProjectParticles();
+
+  // Carousel logic
+  const carousel = document.querySelector('.projects-carousel');
+  const track = carousel.querySelector('.carousel-track');
+  const cards = Array.from(track.children);
+  const prevBtn = carousel.querySelector('.prev-btn');
+  const nextBtn = carousel.querySelector('.next-btn');
+  let currentIndex = 0;
+  function scrollToCard(idx) {
+    const card = cards[idx];
+    card.scrollIntoView({behavior: 'smooth', inline: 'center', block: 'nearest'});
+    cards.forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+    card.focus();
+  }
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+    scrollToCard(currentIndex);
+  });
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % cards.length;
+    scrollToCard(currentIndex);
+  });
+  // Keyboard navigation
+  track.addEventListener('keydown', e => {
+    if (e.key === "ArrowLeft") {
+      prevBtn.click();
+    } else if (e.key === "ArrowRight") {
+      nextBtn.click();
+    }
+  });
+  // Focus on first card initially
+  setTimeout(() => scrollToCard(0), 350);
+  // 3D hover effect for cards
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * 10;
+      const rotateY = ((x - centerX) / centerX) * 10;
+      card.querySelector('.project-card-inner').style.transform =
+        `rotateY(${rotateY}deg) rotateX(${-rotateX}deg) scale(1.07)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.querySelector('.project-card-inner').style.transform = '';
+    });
+    card.addEventListener('focus', () => {
+      card.querySelector('.project-card-inner').style.transform = 'rotateY(7deg) scale(1.06) translateY(-12px)';
+    });
+    card.addEventListener('blur', () => {
+      card.querySelector('.project-card-inner').style.transform = '';
+    });
+  });
+</script>
+
+<section id="certificates">
+  <h2>Certificates</h2>
+  <div class="cert-container">
+    <div class="cert-card">
+      <div class="cert-card-inner">
+        <div class="cert-card-front">
+          <a href="certificate.pdf" target="_blank" class="cert-link">
+            <embed src="certificate.pdf"
+                   type="application/pdf"
+                   class="cert-pdf-preview">
+          </a>
+        </div>
+        <div class="cert-card-back">
+          <div class="cert-info">
+            <h3>Certificate 1</h3>
+            <p>Issued by CISCO</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-card-inner">
+        <div class="cert-card-front">
+          <a href="_certificate_thapaliyazidan00-gmail-com_7bb2de54-f967-444e-a698-7503ce8f1c5b 23.00.15.pdf" target="_blank" class="cert-link">
+            <embed src="_certificate_thapaliyazidan00-gmail-com_7bb2de54-f967-444e-a698-7503ce8f1c5b 23.00.15.pdf"
+                   type="application/pdf"
+                   class="cert-pdf-preview">
+          </a>
+        </div>
+        <div class="cert-card-back">
+          <div class="cert-info">
+            <h3>Certificate 2</h3>
+            <p>Issued by CISCO</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-card-inner">
+        <div class="cert-card-front">
+          <a href="_certificate_thapaliyazidan00-gmail-com_82780c5f-7ea0-4446-a0d7-a976d33aeb9b 23.00.15.pdf" target="_blank" class="cert-link">
+            <embed src="_certificate_thapaliyazidan00-gmail-com_82780c5f-7ea0-4446-a0d7-a976d33aeb9b 23.00.15.pdf"
+                   type="application/pdf"
+                   class="cert-pdf-preview">
+          </a>
+        </div>
+        <div class="cert-card-back">
+          <div class="cert-info">
+            <h3>Certificate 3</h3>
+            <p>Issued by CISCO</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-card-inner">
+        <div class="cert-card-front">
+          <a href="Zidan certificate 23.00.15.pdf" target="_blank" class="cert-link">
+            <embed src="Zidan certificate 23.00.15.pdf"
+                   type="application/pdf"
+                   class="cert-pdf-preview">
+          </a>
+        </div>
+        <div class="cert-card-back">
+          <div class="cert-info">
+            <h3>Certificate 4</h3>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-card-inner">
+        <div class="cert-card-front">
+          <img src="cert-5.png" alt="Certificate 5">
+        </div>
+        <div class="cert-card-back">
+          <div class="cert-info">
+            <h3>Certificate 5</h3>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-card-inner">
+        <div class="cert-card-front">
+          <img src="cert-6.png" alt="Certificate 6">
+        </div>
+        <div class="cert-card-back">
+          <div class="cert-info">
+            <h3>Certificate 6</h3>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <canvas id="certParticles"></canvas>
+</section>
+<style>
+  #certificates {
+    position: relative;
+    padding: 100px 5%;
+    /* background removed to avoid dimming */
+    border-top: 2px solid rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+  }
+
+  #certificates h2 {
+    font-size: 3rem;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: linear-gradient(45deg, #ff512f, #dd2476, #ff512f);
+    background-size: 600% 600%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientMove 6s linear infinite;
+  }
+
+  .cert-container {
+    display: flex;
+    gap: 40px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+    scroll-behavior: smooth;
+    z-index: 1;
+    width: 100%;
+  }
+
+  .cert-container::-webkit-scrollbar {
+    height: 10px;
+  }
+
+  .cert-container::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+  }
+
+  .cert-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #ff512f, #dd2476);
+    border-radius: 10px;
+  }
+
+  .cert-card {
+    background: transparent;
+    border-radius: 25px;
+    min-width: 300px;
+    min-height: 220px;
+    flex-shrink: 0;
+    cursor: pointer;
+    perspective: 1100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.5s;
+  }
+
+  .cert-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s cubic-bezier(.4,2,.6,.9);
+    transform-style: preserve-3d;
+    border-radius: 25px;
+    min-height: 220px;
+    min-width: 300px;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.18), 0 0 0 transparent;
+  }
+
+  .cert-card:hover .cert-card-inner {
+    transform: rotateY(180deg);
+    box-shadow: 0 16px 40px rgba(255,81,47,0.30), 0 0 60px rgba(221,36,118,0.18);
+  }
+
+  .cert-card-front, .cert-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  }
+
+  .cert-card-front img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 25px 25px 25px 25px;
+    transition: transform 0.5s;
+    filter: drop-shadow(0 2px 10px rgba(255,81,47,0.10));
+  }
+
+  .cert-pdf-preview {
+    width: 100%;
+    height: 220px;
+    border-radius: 25px;
+    pointer-events: none;
+  }
+
+  .cert-card:hover .cert-card-front img {
+    transform: scale(1.05) rotateY(10deg);
+  }
+
+  .cert-card-back {
+    transform: rotateY(180deg);
+    background: linear-gradient(135deg, rgba(255,81,47,0.27), rgba(221,36,118,0.18));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .cert-info {
+    padding: 30px 20px;
+    text-align: center;
+    color: #fff;
+    width: 100%;
+  }
+
+  .cert-info h3 {
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+    color: #fff;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(255,81,47,0.15);
+  }
+
+  .cert-info p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.8);
+    margin: 0;
+  }
+
+  .cert-card:hover {
+    box-shadow: 0 10px 30px rgba(255,81,47,0.20), 0 0 40px rgba(221,36,118,0.15);
+  }
+
+  /* Particle canvas for certificates */
+  #certParticles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  @media (max-width: 600px) {
+    .cert-container {
+      gap: 18px;
+    }
+    .cert-card, .cert-card-inner {
+      min-width: 210px;
+      min-height: 140px;
+    }
+    .cert-card-front img {
+      height: 140px;
+    }
+    .cert-pdf-preview {
+      height: 140px;
+    }
+  }
+</style>
+<script>
+  // Certificates particle background
+  const certCanvas = document.getElementById('certParticles');
+  const certCtx = certCanvas.getContext('2d');
+  let certParticles;
+
+  function initCertParticles() {
+    certCanvas.width = certCanvas.offsetWidth;
+    certCanvas.height = certCanvas.offsetHeight;
+    certParticles = [];
+    const number = 60;
+    for (let i=0;i<number;i++) {
+      certParticles.push({
+        x: Math.random()*certCanvas.width,
+        y: Math.random()*certCanvas.height,
+        size: Math.random()*3 +1,
+        speedX: (Math.random()-0.5)*1,
+        speedY: (Math.random()-0.5)*1,
+        color: `rgba(255,255,255,${Math.random()})`
+      });
+    }
+  }
+
+  function animateCertParticles() {
+    certCtx.clearRect(0,0,certCanvas.width, certCanvas.height);
+    for (let p of certParticles) {
+      certCtx.beginPath();
+      certCtx.arc(p.x,p.y,p.size,0, Math.PI*2);
+      certCtx.fillStyle = p.color;
+      certCtx.fill();
+      p.x += p.speedX;
+      p.y += p.speedY;
+      if(p.x<0 || p.x>certCanvas.width) p.speedX = -p.speedX;
+      if(p.y<0 || p.y>certCanvas.height) p.speedY = -p.speedY;
+    }
+    requestAnimationFrame(animateCertParticles);
+  }
+
+  window.addEventListener('resize', initCertParticles);
+  initCertParticles();
+  animateCertParticles();
+</script>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="contact-box">
+    <div class="contact-buttons">
+      <a href="mailto:your.email@gmail.com" class="contact-btn gmail">zonnyrt@gmail.com</a>
+      <a href="tel:+977123456789" class="contact-btn phone">Call: 9803390209</a>
+    </div>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/yourprofile" target="_blank" class="social-btn fb">
+        <img src="facebook.png" alt="Facebook" />
+      </a>
+      <a href="https://wa.me/977123456789" target="_blank" class="social-btn wa">
+        <img src="what'sapp.png" alt="WhatsApp" />
+      </a>
+      <a href="https://www.instagram.com/yourprofile" target="_blank" class="social-btn ig">
+        <img src="instagram.png" alt="Instagram" />
+      </a>
+    </div>
+  </div>
+  <div class="contact-footer">
+    <p>© 2025 Zidan Thapaliya. All rights reserved.</p>
+  </div>
+  <canvas id="contactParticles"></canvas>
+</section>
+
+
+
+
+<style>
+  #contact {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 10%;
+    color: #fff;
+    border-top: 2px solid rgba(255, 255, 255, 0.3);
+    margin-top: 60px;
+    overflow: hidden;
+  }
+
+  #contact h2 {
+    font-size: 3rem;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, #ff512f, #dd2476, #ff512f);
+    background-size: 600% 600%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientMove 5s linear infinite;
+  }
+
+  @keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .contact-box {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    padding: 50px 70px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    z-index: 1;
+  }
+
+  .contact-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-btn {
+    display: inline-block;
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(270deg, #ff512f, #dd2476, #ff512f);
+    background-size: 600% 600%;
+    transition: transform 0.3s ease, background-position 1.5s ease;
+  }
+
+  .contact-btn:hover {
+    background-position: 100% 0;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 81, 47, 0.6), 0 0 40px rgba(221, 36, 118, 0.5);
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .social-btn img {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+
+  .social-btn img:hover {
+    transform: scale(1.3) rotate(-10deg);
+    filter: drop-shadow(0 0 15px #ff512fcc);
+    box-shadow: 0 0 25px #dd2476aa;
+  }
+
+  /* Particle canvas */
+  #contactParticles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .contact-footer {
+    margin-top: 60px; /* move it a bit lower */
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3); /* subtle border */
+    background: rgba(0, 0, 0, 0.15); /* slightly dim background */
+    font-size: 1rem;
+    color: rgba(255,255,255,0.85);
+    text-align: center;
+    animation: footerGlow 3s ease-in-out infinite alternate;
+    z-index: 2;
+    position: relative;
+  }
+
+  @keyframes footerGlow {
+    0% {
+      text-shadow: 0 0 3px rgba(255,255,255,0.3);
+      opacity: 0.7;
+    }
+    50% {
+      text-shadow: 0 0 8px rgba(255,255,255,0.7);
+      opacity: 1;
+    }
+    100% {
+      text-shadow: 0 0 3px rgba(255,255,255,0.3);
+      opacity: 0.7;
+    }
+  }
+</style>
+
+
+
+
+
+<script>
+  let audioCtx;
+
+  function playClickSound() {
+    if (!audioCtx) {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+
+    // Keyboard-like click
+    osc.type = 'triangle';
+    osc.frequency.value = 1000 + Math.random() * 200; // slight variation for realism
+
+    gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.03); // shorter for click
+
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+
+    osc.start();
+    osc.stop(audioCtx.currentTime + 0.03);
+  }
+
+  function playEffect() {
+    playClickSound();
+
+    if (navigator.vibrate) {
+      navigator.vibrate(50);
+    }
+
+    // Flower fall effect
+    const flowers = ['blue.webp', 'rose.webp', 'fly.webp'];
+
+    let count = 0;
+    const maxFlowers = 50;
+
+    function spawnFlower(delay) {
+      setTimeout(() => {
+        const img = document.createElement('img');
+        img.src = flowers[Math.floor(Math.random() * flowers.length)];
+        img.className = 'flower';
+
+        img.style.left = Math.random() * 100 + 'vw';
+        img.style.zIndex = Math.floor(Math.random() * 20);
+        img.style.animationDuration = 8 + Math.random() * 4 + 's';
+
+        const size = 70 + Math.random() * 50;
+        img.style.width = size + 'px';
+        img.style.height = 'auto';
+
+        document.body.appendChild(img);
+
+        setTimeout(() => {
+          img.remove();
+        }, 13000);
+      }, delay);
+    }
+
+    const staggerGap = 60; // slight delay between each flower
+
+    for (let i = 0; i < maxFlowers; i++) {
+      spawnFlower(i * staggerGap);
+    }
+  }
+
+
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('button, a')) {
+      playClickSound();
+
+      if (navigator.vibrate) {
+        navigator.vibrate(30);
+      }
+    }
+  });
+
+  // Enhanced welcome text animation: gradient, glow, scale/rotate, lively language cycling
+  const welcomeMessages = [
+    'Welcome',                // English
+    'Hola',                   // Spanish
+    'Bonjour',                // French
+    'Willkommen',             // German
+    'Benvenuto',              // Italian
+    'Bem-vindo',              // Portuguese
+    'Welkom',                 // Dutch
+    'Välkommen',              // Swedish
+    'Velkommen',              // Norwegian / Danish
+    'Tervetuloa',             // Finnish
+    'Witamy',                 // Polish
+    'Vitajte',                // Slovak
+    'Üdvözöljük',             // Hungarian
+    'Dobrodošli',             // Croatian / Serbian
+    'Bine ați venit',         // Romanian
+    'Καλώς ήρθατε',           // Greek
+    'Добро пожаловать',       // Russian
+    'Ласкаво просимо',        // Ukrainian
+    'Hoş geldiniz',           // Turkish
+    'مرحبا',                  // Arabic
+    'أهلاً وسهلاً',           // Arabic (formal)
+    'سلام',                   // Persian
+    'स्वागत है',              // Hindi
+    'স্বাগতম',               // Bengali
+    'வரவேற்பு',              // Tamil
+    'స్వాగతం',               // Telugu
+    'ಸ್ವಾಗತ',                // Kannada
+    'സ്വാഗതം',               // Malayalam
+    '欢迎',                   // Chinese (Simplified)
+    '歡迎',                   // Chinese (Traditional)
+    'ようこそ',               // Japanese
+    '환영합니다',             // Korean
+    'Chào mừng',              // Vietnamese
+    'Selamat datang',         // Indonesian
+    'Maligayang pagdating',   // Filipino
+    'Karibu',                 // Swahili
+    'Bienvenue chez nous',    // French (variant)
+    'Bienvenido',             // Spanish (variant)
+    'Welcome Home',           // English (variant)
+    'Namaste'                 // Nepali / Sanskrit
+  ];
+  let welcomeIdx = 0;
+  const welcomeElement = document.getElementById('welcomeText');
+  // Helper for smooth lively transition
+  function animateWelcomeOutIn(newText) {
+    // Animate out: fade, scale/rotate out
+    welcomeElement.style.transition = 'opacity 0.5s cubic-bezier(.6,0,.4,1), transform 0.6s cubic-bezier(.6,0,.4,1)';
+    welcomeElement.style.opacity = 0;
+    welcomeElement.style.transform += ' scale(1.2) rotate(8deg)';
+    setTimeout(() => {
+      // Change text & animate in: lively pop
+      welcomeElement.textContent = newText;
+      welcomeElement.style.transition = 'opacity 0.7s cubic-bezier(.6,2,.4,1.2), transform 0.7s cubic-bezier(.6,2,.4,1.2)';
+      welcomeElement.style.opacity = 1;
+      welcomeElement.style.transform = 'scale(0.88) rotate(-7deg)';
+      setTimeout(() => {
+        welcomeElement.style.transform = '';
+      }, 700);
+    }, 420);
+  }
+  function cycleWelcome() {
+    welcomeIdx = (welcomeIdx + 1) % welcomeMessages.length;
+    animateWelcomeOutIn(welcomeMessages[welcomeIdx]);
+  }
+  // Initial state: animate in the first message
+  welcomeElement.style.opacity = 0;
+  setTimeout(() => {
+    welcomeElement.textContent = welcomeMessages[0];
+    welcomeElement.style.opacity = 1;
+    welcomeElement.style.transform = 'scale(0.95) rotate(-4deg)';
+    setTimeout(() => {
+      welcomeElement.style.transform = '';
+    }, 700);
+  }, 250);
+  setInterval(cycleWelcome, 3200);
+</script>
+
+<script>
+  // Contact section particles
+  const canvas = document.getElementById('contactParticles');
+  const ctx = canvas.getContext('2d');
+  let particlesArray;
+
+  function initParticles() {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+    particlesArray = [];
+    const numberOfParticles = 80;
+    for (let i = 0; i < numberOfParticles; i++) {
+      particlesArray.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 4 + 1,
+        speedX: (Math.random() - 0.5) * 1.5,
+        speedY: (Math.random() - 0.5) * 1.5,
+        color: `rgba(255,255,255,${Math.random()})`
+      });
+    }
+  }
+
+  function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < particlesArray.length; i++) {
+      const p = particlesArray[i];
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = p.color;
+      ctx.fill();
+
+      p.x += p.speedX;
+      p.y += p.speedY;
+
+      if (p.x < 0 || p.x > canvas.width) p.speedX = -p.speedX;
+      if (p.y < 0 || p.y > canvas.height) p.speedY = -p.speedY;
+    }
+    requestAnimationFrame(animateParticles);
+  }
+
+  window.addEventListener('resize', () => {
+    initParticles();
+  });
+
+  initParticles();
+  animateParticles();
+</script>
+
+</body>
+</html>
+</body>
